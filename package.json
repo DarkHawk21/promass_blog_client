@@ -8,13 +8,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^6.1.0",
+    "axios": "^1.5.0",
+    "epic-spinners": "^2.0.0",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-sweetalert2": "^5.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "sass": "^1.69.4",
+    "sass-loader": "^13.3.2",
     "vite": "^4.4.11"
   }
 }

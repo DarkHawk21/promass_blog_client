@@ -1,0 +1,38 @@
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  background: $blue;
+  position: absolute;
+  padding: 15px 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .header_logo_container {
+    height: 50px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .header_titles_container {
+    text-align: center;
+
+    h1 {
+      color: $white;
+      font-size: 1.4rem;
+      margin-bottom: 2px;
+    }
+
+    h2 {
+      color: $orange;
+      font-size: 1rem;
+    }
+  }
+}

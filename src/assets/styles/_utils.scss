@@ -1,0 +1,236 @@
+/*
+  TITULOS
+*/
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1440px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.8rem;
+  }
+
+  h6 {
+    font-size: 0.6rem;
+  }
+}
+
+
+
+/*
+  ALINEACIONES
+*/
+
+.align_center {
+  text-align: center;
+}
+
+.align_left {
+  text-align: left;
+}
+
+
+
+/*
+  FORMULARIOS
+*/
+
+.form_control_container {
+  width: 100%;
+  max-width: 300px;
+}
+
+.form_control {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid $defaultBorderColor;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+.form_label_control {
+  width: 100%;
+  display: inline-block;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  color: $white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: ease all 0.25s;
+  background: rgba($buttonGreenColor, 0.6);
+
+  &:hover {
+    background: rgba($buttonGreenColor, 1);
+  }
+
+  &.bg_red {
+    background: rgba($red, 0.6);
+
+    &:hover {
+      background: rgba($red, 1);
+    }
+  }
+
+  &.bg_gray {
+    background: rgba($gray, 0.6);
+
+    &:hover {
+      background: rgba($gray, 1);
+    }
+  }
+}
+
+
+
+/*
+  CONTENEDORES
+*/
+
+.table_container {
+  width: 100%;
+  overflow: auto;
+}
+
+.cards_container {
+  columns: 3;
+  width: 100%;
+  column-gap: 30px;
+
+  @include large {
+    columns: 2;
+  }
+
+  @include tablet {
+    columns: 1;
+  }
+}
+
+
+
+/*
+  TAMAÑOS
+*/
+
+.w_100 {
+  width: 100%;
+}
+
+.w_60 {
+  width: 60%;
+}
+
+
+/*
+  FLEXBOX
+*/
+
+.d_flex {
+  display: flex;
+}
+
+.flex_column {
+  flex-direction: column;
+}
+
+.flex_row {
+  flex-direction: row;
+}
+
+.justify_between {
+  justify-content: space-between;
+}
+
+.items_start {
+  align-items: flex-start;
+}
+
+.items_center {
+  align-items: center;
+}
+
+.items_end {
+  align-items: flex-end;
+}
+
+
+/*
+  OTROS
+*/
+
+.interactable {
+  cursor: pointer;
+}
+
+.recurrence_label {
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  line-height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-align: center;
+  display: inline-block;
+  transition: ease all 0.25s;
+  background: rgba($gray, 0.1);
+
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    background: rgba($cyanBlue, 1);
+  }
+}
+
+.recurrence_checkbox {
+  display: none;
+
+  &:checked + .recurrence_label {
+    color: $white;
+    background: rgba($cyanBlue, 1);
+  }
+}
+
+.recurrence_radio {
+  cursor: pointer;
+  transform: scale(1.3);
+}

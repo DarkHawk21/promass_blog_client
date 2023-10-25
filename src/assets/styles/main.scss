@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter var', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: $white;
+
+  main {
+    padding: 120px 40px 40px 40px;
+    min-height: calc(100vh - 80px);
+
+    .principal_container {
+      gap: 40px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1500px;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    @include tablet {
+      padding: 120px 20px 20px 20px;
+    }
+  }
+}
