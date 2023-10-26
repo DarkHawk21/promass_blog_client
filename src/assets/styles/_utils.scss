@@ -1,6 +1,9 @@
 /*
   TITULOS
 */
+h1 {
+  font-size: 1.8rem;
+}
 
 h2 {
   font-size: 1.6rem;
@@ -23,6 +26,10 @@ h6 {
 }
 
 @media (max-width: 1440px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
   h2 {
     font-size: 1.4rem;
   }
@@ -79,13 +86,13 @@ h6 {
 }
 
 label {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .form_label_control {
   width: 100%;
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: left;
   margin-bottom: 10px;
 }
@@ -97,6 +104,7 @@ label {
   cursor: pointer;
   font-size: 0.9rem;
   border-radius: 4px;
+  text-decoration: none;
   transition: ease all 0.25s;
   background: rgba($buttonGreenColor, 0.6);
 
@@ -117,6 +125,22 @@ label {
 
     &:hover {
       background: rgba($gray, 1);
+    }
+  }
+
+  &.bg_orange {
+    background: rgba($orange, 0.6);
+
+    &:hover {
+      background: rgba($orange, 1);
+    }
+  }
+
+  &.bg_blue {
+    background: rgba($cyanBlue, 0.6);
+
+    &:hover {
+      background: rgba($cyanBlue, 1);
     }
   }
 }

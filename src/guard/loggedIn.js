@@ -15,11 +15,7 @@ export default (to, from, next) => {
       throw new Error('Auth token expired');
     }
 
-    if (isNotProtected || !hasPermission) {
-      next('/');
-    } else {
-      next();
-    }
+    next();
   } catch (error) {
     localStorage.removeItem(_TOKEN);
 

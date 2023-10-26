@@ -36,8 +36,8 @@
   const userStore = useUserStore();
   const { token } = storeToRefs(userStore);
 
-  const email = ref("");
-  const password = ref("");
+  const email = ref("enriquecarranza38@gmail.com");
+  const password = ref("Pass1234");
 
   const canLogin = computed(() => {
     return email.value && password.value;
@@ -49,13 +49,13 @@
     }
   };
 
+  if (token.value) {
+    router.replace({ name: 'home' });
+  }
+
   watch(token, (token) => {
     if (token) {
-      if (router.currentRoute.value.query.from) {
-        router.replace(router.currentRoute.value.query.from)
-      } else {
-        router.replace({ name: 'home' });
-      }
+      router.replace({ name: 'home' });
     }
   });
 </script>
