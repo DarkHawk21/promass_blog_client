@@ -6,7 +6,9 @@
 
   <div class="container pt-10">
     <h1 class="text-center">Blog</h1>
-    <h4 class="text-center">Una colección de 29 publicaciones.</h4>
+    <h4 class="text-center" v-if="entries.length > 1">Una colección de {{ entries.length }} publicaciones.</h4>
+    <h4 class="text-center" v-else-if="entries.length == 1">Una colección de {{ entries.length }} publicación.</h4>
+    <h4 class="text-center" v-else>GRUPO PROMASS</h4>
 
     <div class="py-5">
       <h3>Puedes filtrar por:</h3>
