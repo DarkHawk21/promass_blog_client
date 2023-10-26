@@ -45,13 +45,29 @@
     </div>
 
     <div class="p-5 flex row items-start justify-center flex-wrap gap-20" v-if="entries.length > 0">
-      <div class="card" v-for="entry in entries" :key="entry.id">
+      <div class="card cursor-pointer hover:bg-slate-100" v-for="entry in entries" :key="entry.id">
         <div class="card_head">
-          <h3>{{ entry.title }}</h3>
+          <h3 class="text-center mb-2">
+            <strong>{{ entry.title }}</strong>
+          </h3>
+
+          <p class="text-sky-500">Autor: <strong>{{ entry.author.name }}</strong></p>
+          <p class="text-sky-500">Creada el <strong>{{ moment(entry.created_at).format("D/MM/Y") }}</strong> a las <strong>{{ moment(entry.created_at).format("HH:mm") }}</strong></p>
         </div>
 
         <div class="card_body mb-5">
-          <p>{{ entry.content }}</p>
+          <p v-if="entry.content.length > 70">
+            {{ entry.content.substring(0, 70) }}...
+            <router-link
+              :to="`/entry/${entry.id}`"
+              class="text-blue-600"
+            >ver más.</router-link>
+          </p>
+          <p v-else>{{ entry.content }}</p>
+        </div>
+
+        <div class="card_footer flex justify-end mt-5">
+          <router-link :to="`/entry/${entry.id}`" class="btn">Ver completa</router-link>
         </div>
       </div>
     </div>
@@ -65,11 +81,13 @@
 </template>
 
 <script setup>
-  import { onMounted, ref } from "vue";
+  import { onMounted, ref, inject } from "vue";
   import { storeToRefs } from "pinia";
   import { useUserStore } from "../stores/UserStore";
   import { useEntryStore } from "../stores/EntryStore";
   import ModalAddEntry from "../components/ModalAddEntryComponent.vue";
+
+  const moment = inject("moment");
 
   const filters = ref({
     keyword: "",

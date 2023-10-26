@@ -6,6 +6,7 @@ import Swal from 'sweetalert2/dist/sweetalert2';
 
 export const useEntryStore = defineStore('entry', {
   state: () => ({
+    entry: {},
     entries: [],
     authors: []
   }),
@@ -51,6 +52,17 @@ export const useEntryStore = defineStore('entry', {
       } catch (error) {
         useLoaderStore().loading = false;
       }
-    }
+    },
+    async getOne(entryId) {
+      useLoaderStore().loading = true;
+
+      try {
+        const { data } = await axios.get(`${_API_URL}/entries/${entryId}`);
+        this.entry = data;
+        useLoaderStore().loading = false;
+      } catch (error) {
+        useLoaderStore().loading = false;
+      }
+    },
   }
 });

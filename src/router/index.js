@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LayoutView from '../views/LayoutView.vue';
 import LoginView from '../views/LoginView.vue';
 import HomeView from '../views/HomeView.vue';
+import EntryView from '../views/EntryView.vue';
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
         name: 'home',
         component: HomeView
       },
+      {
+        path: '/entry/:entryId',
+        name: 'entry',
+        component: EntryView
+      }
     ]
   },
   {
