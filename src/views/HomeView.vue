@@ -1,4 +1,9 @@
 <template>
+  <ModalAddEntry
+    v-if="showModalAddEntry"
+    @hide-modal-add-entry="showModalAddEntry = false"
+  />
+
   <div class="container pt-10">
     <h1 class="text-center">Blog</h1>
     <h4 class="text-center">Una colección de 29 publicaciones.</h4>
@@ -23,12 +28,12 @@
         <div class="flex gap-2">
           <span>
             <label class="form_label_control">&nbsp;</label>
-            <button class="btn bg_orange" @click="cleanFilters()">Limpiar filtros</button>
+            <button class="btn bg_orange" @click="cleanFilters">Limpiar filtros</button>
           </span>
 
-          <span>
+          <span v-if="token">
             <label class="form_label_control">&nbsp;</label>
-            <button class="btn" @click="">Agregar</button>
+            <button class="btn" @click="showModalAddEntry = true">Agregar</button>
           </span>
 
           <span>
@@ -64,11 +69,14 @@
   import { storeToRefs } from "pinia";
   import { useUserStore } from "../stores/UserStore";
   import { useEntryStore } from "../stores/EntryStore";
+  import ModalAddEntry from "../components/ModalAddEntryComponent.vue";
 
   const filters = ref({
     keyword: "",
     author_id: null,
   });
+
+  let showModalAddEntry = ref(false);
 
   const userStore = useUserStore();
   const { token } = storeToRefs(userStore);
