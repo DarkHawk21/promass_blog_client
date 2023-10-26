@@ -5,7 +5,8 @@
     </div>
 
     <div class="header_titles_container">
-      <router-link to="/login" class="btn" v-if="!token">Iniciar sesión</router-link>
+      <router-link to="/login" class="btn mr-3" v-if="!token">Iniciar sesión</router-link>
+      <router-link to="/register" class="btn bg_blue" v-if="!token">Crear una cuenta</router-link>
       <button class="btn bg_red" @click="userStore.logout()" v-if="token">Cerrar sesión</button>
     </div>
   </header>

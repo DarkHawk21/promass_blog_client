@@ -5,7 +5,8 @@ import { _TOKEN } from '../config';
 export default (to, from, next) => {
   const isNotProtected = [
     'home',
-    'login'
+    'login',
+    'register'
   ].includes(to.name);
 
   try {

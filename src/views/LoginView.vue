@@ -7,7 +7,7 @@
       <input
         type="email"
         v-model="email"
-        placeholder="asesor@ejemplo.com"
+        placeholder="ejemplo@ejemplo.com"
         class="form_control"
       />
 
@@ -20,6 +20,8 @@
       />
 
       <button class="btn w_100" type="submit">Iniciar sesión</button>
+      <p class="text-center pt-3">¿No tienes una cuenta?</p>
+      <router-link to="/register" class="flex justify-center btn bg_blue">Crear una cuenta</router-link>
     </form>
   </main>
 </template>
@@ -36,8 +38,8 @@
   const userStore = useUserStore();
   const { token } = storeToRefs(userStore);
 
-  const email = ref("enriquecarranza38@gmail.com");
-  const password = ref("Pass1234");
+  const email = ref("");
+  const password = ref("");
 
   const canLogin = computed(() => {
     return email.value && password.value;

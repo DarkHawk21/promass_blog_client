@@ -26,13 +26,12 @@ export const useUserStore = defineStore('user', {
 
         if (error.response.status == 401) {
           Swal.fire({
-            toast: true,
             timer: 5000,
             icon: 'error',
-            position: 'bottom-end',
+            position: 'center',
             timerProgressBar: true,
             showConfirmButton: false,
-            title: 'Error de login',
+            title: '¡Hubo un error!',
             text: 'Credenciales de acceso incorrectas.'
           });
         }
@@ -50,6 +49,36 @@ export const useUserStore = defineStore('user', {
       } catch (error) {
         useLoaderStore().loading = false;
       }
-    }
+    },
+    async register(registerData) {
+      useLoaderStore().loading = true;
+
+      try {
+        await axios.post(`${_API_URL}/auth/register`, registerData);
+        useLoaderStore().loading = false;
+
+        Swal.fire({
+          timer: 5000,
+          icon: 'success',
+          position: 'center',
+          timerProgressBar: true,
+          showConfirmButton: false,
+          title: '¡Registro exitoso!',
+          text: 'Tu cuenta se ha creado satisfactoriamente. Ahora, inicia sesión para comenzar a publicar.'
+        });
+      } catch (error) {
+        useLoaderStore().loading = false;
+
+        Swal.fire({
+          timer: 5000,
+          icon: 'error',
+          position: 'center',
+          timerProgressBar: true,
+          showConfirmButton: false,
+          title: '¡Hubo un error!',
+          text: 'Lo sentimos, en este momento no fué posible crear tu cuenta. Por favor inténtalo más tarde.'
+        });
+      }
+    },
   }
 });
